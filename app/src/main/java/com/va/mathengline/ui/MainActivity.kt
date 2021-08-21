@@ -26,6 +26,7 @@ import com.va.mathengline.services.EngineService
 import java.util.*
 import kotlin.collections.ArrayList
 import androidx.recyclerview.widget.DividerItemDecoration
+import com.va.mathengline.utils.MathOperator
 import com.yayandroid.locationmanager.LocationManager
 import com.yayandroid.locationmanager.configuration.Configurations
 import com.yayandroid.locationmanager.configuration.LocationConfiguration
@@ -185,9 +186,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
 
 
-    enum class MathOperator(val text:String){
-        ADD("Add"),SUB("Sub"),MUL("Mul"),DIV("Div")
-    }
+
 
     private fun requestLocation() {
         locationManager = LocationManager.Builder(this.applicationContext)

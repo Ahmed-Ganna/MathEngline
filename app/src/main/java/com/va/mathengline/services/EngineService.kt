@@ -20,8 +20,7 @@ import android.app.NotificationChannel
 import android.content.Context
 
 import android.os.Build
-
-
+import com.va.mathengline.utils.MathUtils
 
 
 class EngineService : Service() {
@@ -53,15 +52,7 @@ class EngineService : Service() {
     fun addOperation(operation: MathOperationItem) {
         pendingLveData.add(operation)
         val task = Runnable {
-            val result = operation.parameters.reduce { accumulator, element ->
-                when(operation.operator){
-                    MainActivity.MathOperator.ADD -> accumulator + element
-                    MainActivity.MathOperator.SUB -> accumulator - element
-                    MainActivity.MathOperator.MUL -> accumulator * element
-                    MainActivity.MathOperator.DIV -> accumulator / element
-                }
-            }
-            operation.result = result
+            operation.result = MathUtils().doOperation(operation)
             pendingLveData.remove(operation,true)
             completedLiveData.add(operation,true)
         }

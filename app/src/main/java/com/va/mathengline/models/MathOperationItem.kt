@@ -1,6 +1,10 @@
 package com.va.mathengline.models
 
-import com.va.mathengline.ui.MainActivity
-import java.time.Duration
+import com.va.mathengline.utils.MathOperator
 
-class MathOperationItem(val id:String, val operator: MainActivity.MathOperator, val delaySec:Long, val parameters : List<Int> , var result : Int? = null)
+open class MathOperationItem(val id:String,private val operator: MathOperator, val delaySec:Long,private val parameters : List<Int>, var result : Int? = null){
+
+    open fun getParameters() = parameters
+
+    open fun getOperator() = operator
+}
