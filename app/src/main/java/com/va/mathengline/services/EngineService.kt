@@ -65,7 +65,7 @@ class EngineService : Service() {
             val CHANNEL_ID = "my_channel_01"
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "Channel human readable title",
+                "Math engine service",
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(
